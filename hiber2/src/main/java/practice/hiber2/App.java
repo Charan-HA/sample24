@@ -15,8 +15,16 @@ public class App
         
         sess.beginTransaction();
         
-        Employee emp = new Employee("Akhul", 40000, "Assosiate", "Tester");
-        sess.persist(emp);
+        Person p = new Person();
+        
+        AadharCard ac = new AadharCard(1111, "Deep", "BTM", "Male", p);
+        
+        p.setId(101);
+        p.setNickName("Dee");
+        p.setAc(ac);
+       
+        sess.persist(p);
+        sess.persist(ac);
         
         sess.getTransaction().commit();
     }
